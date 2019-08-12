@@ -1,0 +1,133 @@
+@import '~vuetify/src/styles/styles.sass';
+
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+
+// $material-light.background = #FFF
+$body-font-family: 'Titillium Web' !important;
+$heading-font-family: 'Titillium Web' !important;
+$font-size-root: 16px;
+
+h1 {
+  margin-bottom: 1.5rem !important;
+  font-weight: normal !important;
+}
+
+/* Adjust typography styles */
+.nsys-title {
+  font-weight: 400 !important;
+  font-size: 1.25rem !important;
+  line-height: 2rem !important;
+  font-family: $heading-font-family;
+}
+
+/* Adjust height from 56px to 48px for outlined text box */
+.v-text-field--outlined>.v-input__control>.v-input__slot {
+  min-height: 48px !important;
+  background-color: #ffffff !important;
+}
+
+.v-text-field.v-text-field--enclosed .v-input__append-inner {
+  margin-top: 12px !important;
+}
+
+.v-text-field--outlined .v-label {
+  top: 14px !important;
+}
+
+.v-text-field__details {
+  margin-bottom: 0 !important;
+}
+
+/* Adjust v-card-title */
+.v-card__title {
+  font-size: 2rem !important;
+}
+
+/* Adjust v-data-table */
+.nsys-data-table {
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 4px !important;
+  -moz-border-radius: 4px !important;
+}
+
+.theme--light.v-data-table thead tr:last-child th {
+  background-color: #f5f5f5 !important;
+  height: 32px !important;
+}
+
+.theme--light.v-data-table thead tr:last-child th {
+  border-bottom: 1 px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Adjust v-card */
+.nsys-card-form {
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 4px !important;
+  -moz-border-radius: 4px !important;
+  background-color: #f5f5f5 !important;
+}
+
+/* v-btn */
+.v-btn {
+  border-radius: 4px !important;
+  -moz-border-radius: 4px !important;
+}
+
+/*$headings : {
+  h1: {
+    size: 112px, weight: 300, line-height: 1, letter-spacing: -.04em, font-family: $heading-font-family
+  }
+
+  ,
+  h2: {
+    size: 56px, weight: 400, line-height: 1.35, letter-spacing: -.02em, font-family: $heading-font-family
+  }
+
+  ,
+  h3: {
+    size: 45px, weight: 400, line-height: 48px, letter-spacing: normal, font-family: $heading-font-family
+  }
+
+  ,
+  h4: {
+    size: 34px, weight: 400, line-height: 40px, letter-spacing: normal, font-family: $heading-font-family
+  }
+
+  ,
+  h5: {
+    size: 24px, weight: 400, line-height: 32px, letter-spacing: normal, font-family: $heading-font-family
+  }
+
+  ,
+  h6: {
+    size: 20px, weight: 600, line-height: 1, letter-spacing: .02em, font-family: $heading-font-family
+  }
+
+  ,
+  subheading: {
+    size: 16px, weight: 400
+  }
+
+  ,
+  body-2: {
+    size: 14px, weight: 600
+  }
+
+  ,
+  body-1: {
+    size: 14px, weight: 400
+  }
+
+  ,
+  caption: {
+    size: 12px, weight: 400
+  }
+
+  ,
+  button: {
+    size: 14px, weight: 600
+  }
+}*/
+
+$button-font-weight: 600;
+$btn-border-radius: 0px;
