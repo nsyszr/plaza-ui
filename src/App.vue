@@ -1,14 +1,8 @@
 <template>
   <v-app id="app">
-    <v-navigation-drawer
-      app
-      class="nsys-navigation-drawer"
-    >
+    <v-navigation-drawer app class="nsys-navigation-drawer">
       <div class="nsys-navigation-drawer-title">
-        <img
-          src="./assets/icom_logo.svg"
-          alt
-        />
+        <img src="./assets/icom_logo.svg" alt />
       </div>
 
       <v-list dense>
@@ -42,7 +36,7 @@
           <template v-slot:activator>
             <v-list-item-title class="nsys-list-group-item-title">Manage</v-list-item-title>
           </template>
-          <v-list-item to="/">
+          <v-list-item to="/manage/devices">
             <v-list-item-content>
               <v-list-item-title>Devices</v-list-item-title>
             </v-list-item-content>
@@ -106,36 +100,45 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
-      app
-      class="nsys-app-bar"
-    >
+    <v-app-bar app class="nsys-app-bar">
       <v-spacer></v-spacer>
-      <v-btn
-        icon
-        color="primary"
-      >
+      <!-- <v-toolbar-items> -->
+      <v-menu v-model="menuDropdown" :close-on-content-click="true" :nudge-width="200" offset-y>
+        <template v-slot:activator="{ on }">
+          <v-btn color="light-green" dark depressed v-on="on" class="mr-2">
+            Create
+            <v-icon right>{{ menuDropdown ? 'mdi-chevron-up' : 'mdi-chevron-down'}}</v-icon>
+          </v-btn>
+        </template>
+
+        <v-card class="mx-auto" max-width="400" tile>
+          <v-list>
+            <v-list-item
+              two-line
+              @click.stop="menuDropdown = false; $router.replace({name: 'manage-devices', query: { create: true }});"
+            >
+              <v-list-item-content>
+                <v-list-item-title>Device</v-list-item-title>
+                <v-list-item-subtitle>Create a new managed device</v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-card>
+      </v-menu>
+      <!-- </v-toolbar-items> -->
+      <v-btn icon color="primary">
         <v-icon>mdi-help-circle-outline</v-icon>
       </v-btn>
-      <v-btn
-        icon
-        color="primary"
-      >
+      <v-btn icon color="primary">
         <v-icon>mdi-bell-outline</v-icon>
       </v-btn>
-      <v-btn
-        icon
-        color="primary"
-      >
+      <v-btn icon color="primary">
         <v-icon>mdi-account-outline</v-icon>
       </v-btn>
     </v-app-bar>
 
     <v-content class="nsys-content">
-      <v-container
-        fluid
-        grid-list-xs
-      >
+      <v-container fluid grid-list-xs>
         <router-view />
       </v-container>
     </v-content>
@@ -147,6 +150,7 @@ export default {
   name: "app",
   data() {
     return {
+      menuDropdown: false,
       items: [
         { title: "Dashboard", icon: "fas fa-home" },
         { title: "Photos", icon: "far fa-images" },
@@ -183,4 +187,8 @@ export default {
   text-transform: uppercase !important;
   font-size: 0.75rem !important;
 }
+/*.v-list-item--active {
+  background-color: #ffe0b2;
+  color: #e65100;
+}*/
 </style>

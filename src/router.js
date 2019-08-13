@@ -12,6 +12,12 @@ export default new Router({
       component: () => import( /* webpackChunkName: "about" */ './views/About.vue')
     },
     {
+      path: '/manage/devices',
+      name: 'manage-devices',
+      component: () => import('./containers/manage/devices'),
+      props: true
+    },
+    {
       path: '/administration/organisations',
       name: 'administration-organisations',
       component: () => import('./views/administration/Organisations.vue')
