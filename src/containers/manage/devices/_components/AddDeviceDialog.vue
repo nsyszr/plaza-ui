@@ -33,12 +33,25 @@
                   label="Project"
                   required
                   outlined
-                ></v-select>
+                >
+                  <template
+                    slot="selection"
+                    slot-scope="data"
+                  >
+                    <v-icon left>mdi-google-circles-extended</v-icon>{{ data.item }}
+                  </template>
+                  <template
+                    slot="item"
+                    slot-scope="data"
+                  >
+                    <v-icon left>mdi-google-circles-extended</v-icon>{{ data.item }}
+                  </template>
+                </v-select>
               </v-col>
               <v-col
                 cols="12"
                 sm="6"
-                class="pl-0 pr-1 pt-0 pb-4"
+                class="pl-0 pr-2 pt-0 pb-4"
               >
                 <small style="text-transform: uppercase; font-weight: bold;">
                   Select a name for the new device
@@ -47,7 +60,7 @@
               <v-col
                 cols="12"
                 sm="6"
-                class="pl-1 pr-0 pt-0 pb-4"
+                class="pl-2 pr-0 pt-0 pb-4"
               >
                 <small style="text-transform: uppercase; font-weight: bold;">
                   Specify serial number of the device
@@ -56,7 +69,7 @@
               <v-col
                 cols="12"
                 sm="6"
-                class="pl-0 pr-1 pt-0 pb-0"
+                class="pl-0 pr-2 pt-0 pb-0"
               >
                 <v-text-field
                   label="Enter device name"
@@ -75,7 +88,7 @@
               <v-col
                 cols="12"
                 sm="6"
-                class="pl-1 pr-0 pt-0 pb-0"
+                class="pl-2 pr-0 pt-0 pb-0"
               >
                 <v-text-field
                   label="Enter device serial number"

@@ -1,8 +1,14 @@
 <template>
   <v-app id="app">
-    <v-navigation-drawer app class="nsys-navigation-drawer">
+    <v-navigation-drawer
+      app
+      class="nsys-navigation-drawer"
+    >
       <div class="nsys-navigation-drawer-title">
-        <img src="./assets/icom_logo.svg" alt />
+        <img
+          src="./assets/icom_logo.svg"
+          alt
+        />
       </div>
 
       <v-list dense>
@@ -12,7 +18,7 @@
           </template>
           <v-list-item @click="true">
             <v-list-item-icon style="margin-right: 8px !important;">
-              <v-icon>mdi-cube-outline</v-icon>
+              <v-icon>mdi-google-circles-extended</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title>INSYS #1</v-list-item-title>
@@ -100,18 +106,36 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app class="nsys-app-bar">
+    <v-app-bar
+      app
+      class="nsys-app-bar"
+    >
       <v-spacer></v-spacer>
       <!-- <v-toolbar-items> -->
-      <v-menu v-model="menuDropdown" :close-on-content-click="true" :nudge-width="200" offset-y>
+      <v-menu
+        v-model="menuDropdown"
+        :close-on-content-click="true"
+        :nudge-width="200"
+        offset-y
+      >
         <template v-slot:activator="{ on }">
-          <v-btn color="light-green" dark depressed v-on="on" class="mr-2">
+          <v-btn
+            color="light-green"
+            dark
+            depressed
+            v-on="on"
+            class="mr-2"
+          >
             Create
             <v-icon right>{{ menuDropdown ? 'mdi-chevron-up' : 'mdi-chevron-down'}}</v-icon>
           </v-btn>
         </template>
 
-        <v-card class="mx-auto" max-width="400" tile>
+        <v-card
+          class="mx-auto"
+          max-width="400"
+          tile
+        >
           <v-list>
             <v-list-item
               two-line
@@ -126,19 +150,31 @@
         </v-card>
       </v-menu>
       <!-- </v-toolbar-items> -->
-      <v-btn icon color="primary">
+      <v-btn
+        icon
+        color="primary"
+      >
         <v-icon>mdi-help-circle-outline</v-icon>
       </v-btn>
-      <v-btn icon color="primary">
+      <v-btn
+        icon
+        color="primary"
+      >
         <v-icon>mdi-bell-outline</v-icon>
       </v-btn>
-      <v-btn icon color="primary">
+      <v-btn
+        icon
+        color="primary"
+      >
         <v-icon>mdi-account-outline</v-icon>
       </v-btn>
     </v-app-bar>
 
     <v-content class="nsys-content">
-      <v-container fluid grid-list-xs>
+      <v-container
+        fluid
+        grid-list-xs
+      >
         <router-view />
       </v-container>
     </v-content>
