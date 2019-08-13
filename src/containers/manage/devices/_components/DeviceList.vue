@@ -3,7 +3,13 @@
     <v-card-title class="pl-0 pr-0 pt-0 pb-8">
       Devices
       <v-spacer></v-spacer>
-      <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" outlined hide-details></v-text-field>
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        outlined
+        hide-details
+      ></v-text-field>
     </v-card-title>
     <v-data-table
       :items="devices"
@@ -24,19 +30,19 @@
 
 <script>
 export default {
-  name: "DeviceList",
+  name: 'DeviceList',
   props: {
     devices: Array,
     headers: Array,
     sortBy: [String, Array],
     sortDesc: [String, Array]
   },
-  data: () => {
+  data() {
     return {
-      search: ""
-    };
+      search: ''
+    }
   }
-};
+}
 </script>
 
 <style>

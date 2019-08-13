@@ -1,41 +1,36 @@
-import UserApi from "@/services/UserApiV1"
-import {
-    immutableUser
-} from "@/models/UserV1"
-
 // initial state
 const state = {
     createDeviceDialog: false,
     devices: [{
-        id: "1",
-        name: "mrx-1234",
-        location: "Regensburg",
-        status: "ONLINE",
-        serialNumber: "10203040",
-        firmwareVersion: "3.7"
+        id: '1',
+        name: 'mrx-1234',
+        location: 'Regensburg',
+        status: 'ONLINE',
+        serialNumber: '10203040',
+        firmwareVersion: '3.7'
     }],
     dataTableHeaders: [{
-            text: "Name",
-            value: "name"
+            text: 'Name',
+            value: 'name'
         },
         {
-            text: "Location",
-            value: "location"
+            text: 'Location',
+            value: 'location'
         },
         {
-            text: "Status",
-            value: "status"
+            text: 'Status',
+            value: 'status'
         },
         {
-            text: "Serial Number",
-            value: "serialNumber"
+            text: 'Serial Number',
+            value: 'serialNumber'
         },
         {
-            text: "Firmware",
-            value: "firmwareVersion"
+            text: 'Firmware',
+            value: 'firmwareVersion'
         }
     ],
-    dataTableSortBy: ["name"],
+    dataTableSortBy: ['name'],
     dataTableSortDesc: [false]
 }
 
@@ -64,32 +59,30 @@ const actions = {
     toggleCreateDeviceDialog({
         commit
     }) {
-        commit("CREATE_DEVICE_DIALOG_TOGGLED")
+        commit('CREATE_DEVICE_DIALOG_TOGGLED')
     },
-    findAllDevices({
-        commit
-    }) {
-        return new Promise((resolve, reject) => {
+    findAllDevices() {
+        return new Promise((resolve) => {
             resolve()
         })
     },
     createDevice({
         commit
     }, device) {
-        return new Promise((resolve, reject) => {
-            commit("DEVICE_ADDED", device)
+        return new Promise((resolve) => {
+            commit('DEVICE_ADDED', device)
             resolve(device)
         })
     },
     setDataTableSortBy({
         commit
     }, data) {
-        commit("DATA_TABLE_SORT_BY_UPDATED", data);
+        commit('DATA_TABLE_SORT_BY_UPDATED', data);
     },
     setDataTableSortDesc({
         commit
     }, data) {
-        commit("DATA_TABLE_SORT_DESC_UPDATED", data);
+        commit('DATA_TABLE_SORT_DESC_UPDATED', data);
     }
 }
 
