@@ -1,8 +1,14 @@
 <template>
   <v-app id="app">
-    <v-navigation-drawer app class="nsys-navigation-drawer">
+    <v-navigation-drawer
+      app
+      class="nsys-navigation-drawer"
+    >
       <div class="nsys-navigation-drawer-title">
-        <img src="./assets/icom_logo.svg" alt />
+        <img
+          src="./assets/icom_logo.svg"
+          alt
+        />
       </div>
 
       <v-list dense>
@@ -34,6 +40,56 @@
       <v-list dense>
         <v-list-group>
           <template v-slot:activator>
+            <v-list-item-title class="nsys-list-group-item-title">Manage</v-list-item-title>
+          </template>
+          <v-list-item to="/">
+            <v-list-item-content>
+              <v-list-item-title>Devices</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item to="/">
+            <v-list-item-content>
+              <v-list-item-title>Virtual Private Networks</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
+      </v-list>
+
+      <v-divider></v-divider>
+
+      <v-list dense>
+        <v-list-group>
+          <template v-slot:activator>
+            <v-list-item-title class="nsys-list-group-item-title">Account</v-list-item-title>
+          </template>
+          <v-list-item to="/">
+            <v-list-item-content>
+              <v-list-item-title>Profile</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item to="/">
+            <v-list-item-content>
+              <v-list-item-title>Organisation</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item to="/">
+            <v-list-item-content>
+              <v-list-item-title>Users</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item to="/">
+            <v-list-item-content>
+              <v-list-item-title>Billing</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
+      </v-list>
+
+      <v-divider></v-divider>
+
+      <v-list dense>
+        <v-list-group>
+          <template v-slot:activator>
             <v-list-item-title class="nsys-list-group-item-title">Administration</v-list-item-title>
           </template>
           <v-list-item to="/administration/organisations">
@@ -50,21 +106,36 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app class="nsys-app-bar">
+    <v-app-bar
+      app
+      class="nsys-app-bar"
+    >
       <v-spacer></v-spacer>
-      <v-btn icon color="primary">
+      <v-btn
+        icon
+        color="primary"
+      >
         <v-icon>mdi-help-circle-outline</v-icon>
       </v-btn>
-      <v-btn icon color="primary">
+      <v-btn
+        icon
+        color="primary"
+      >
         <v-icon>mdi-bell-outline</v-icon>
       </v-btn>
-      <v-btn icon color="primary">
+      <v-btn
+        icon
+        color="primary"
+      >
         <v-icon>mdi-account-outline</v-icon>
       </v-btn>
     </v-app-bar>
 
     <v-content class="nsys-content">
-      <v-container fluid grid-list-xs>
+      <v-container
+        fluid
+        grid-list-xs
+      >
         <router-view />
       </v-container>
     </v-content>
