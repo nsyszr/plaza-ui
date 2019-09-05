@@ -2,12 +2,12 @@ import Api from "@/services/Api";
 
 export default {
   findAll() {
-    return Api().get("/v1/users")
+    return Api().get("/devices")
   },
   create(data) {
-    return Api().post("/v1/users", data)
+    return Api().post("/devices", data)
   },
   getByUuid(uuid) {
-    return Api().get(`/v1/users/${uuid}`)
+    return Api().get(`/devices/${uuid}`)
   }
 }

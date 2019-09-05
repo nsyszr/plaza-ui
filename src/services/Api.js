@@ -11,7 +11,8 @@ export default () => {
     baseURL: process.env.VUE_APP_API_BASE_URL,
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Authorization": "Bearer testrw"
     }
   })
 

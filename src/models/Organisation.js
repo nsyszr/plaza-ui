@@ -8,6 +8,7 @@ export class Organisation {
         supplierUuid = ``,
         emailAddress = ``,
         customerNumber = ``,
+        vatNumber = ``,
         phoneNumber = ``,
         address1 = ``,
         address2 = ``,
@@ -25,6 +26,7 @@ export class Organisation {
         this.supplierUuid = supplierUuid;
         this.emailAddress = emailAddress;
         this.customerNumber = customerNumber;
+        this.vatNumber = vatNumber;
         this.phoneNumber = phoneNumber;
         this.address1 = address1;
         this.address2 = address2;

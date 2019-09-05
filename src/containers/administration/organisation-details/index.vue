@@ -34,9 +34,8 @@
 import { mapGetters, mapActions } from "vuex";
 import store from "./_store";
 import DetailsForm from "./_components/DetailsForm";
-import RolesForm from "./_components/RolesForm";
 import UserList from "./_components/UserList";
-import { Organisation } from "@/models/OrganisationV1";
+import { Organisation } from "@/models/Organisation";
 export default {
   name: "AdministrationOrganisationDetailsContainer",
   props: {
@@ -44,7 +43,6 @@ export default {
   },
   components: {
     DetailsForm,
-    RolesForm,
     UserList
   },
   data: () => {

@@ -1,8 +1,8 @@
-import UserApi from "@/services/UserApiV1"
-import OrganisationApi from "@/services/OrganisationApiV1"
+import UserApi from "@/services/UserApi"
+import OrganisationApi from "@/services/OrganisationApi"
 import {
     immutableUser
-} from "@/models/UserV1"
+} from "@/models/User"
 
 // initial state
 const state = {

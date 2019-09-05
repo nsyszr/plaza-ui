@@ -1,11 +1,11 @@
-import OrganisationApi from "@/services/OrganisationApiV1"
+import OrganisationApi from "@/services/OrganisationApi"
 import {
     Organisation,
     immutableOrganisation
-} from "@/models/OrganisationV1"
+} from "@/models/Organisation"
 import {
     immutableUser
-} from "@/models/UserV1"
+} from "@/models/User"
 import {
     ERROR
 } from '@/store/mutation-types';

@@ -1,7 +1,7 @@
-import OrganisationApi from "@/services/OrganisationApiV1"
+import OrganisationApi from "@/services/OrganisationApi"
 import {
     immutableOrganisation
-} from "@/models/OrganisationV1"
+} from "@/models/Organisation"
 
 // initial state
 const state = {

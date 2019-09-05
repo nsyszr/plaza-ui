@@ -4,8 +4,8 @@
       <h2 class="nsys-title">Organisational Data</h2>
     </v-card-title>
     <v-form v-model="valid" lazy-validation>
-      <v-container grid-list-xl>
-        <v-layout wrap>
+      <v-container fluid>
+        <v-row>
           <v-checkbox
             v-model="organisation.roles"
             label="Customer"
@@ -20,8 +20,21 @@
             label="Platform Operator"
             value="PLATFORM_OPERATOR"
             class="mx-2"
+            disabled
           ></v-checkbox>
-          <v-flex xs12 d-flex>
+          <v-col cols="12" v-if="organisation.roles && organisation.roles.indexOf('PLATFORM_OPERATOR') === -1">
+            <v-switch
+              v-model="organisation.validated"
+              label="Validated"
+              color="success"
+              class="mt-0 pt-0"
+              hide-details
+            ></v-switch>
+          </v-col>
+          <v-col
+            cols="12"
+            v-if="organisation.roles && organisation.roles.indexOf('PLATFORM_OPERATOR') === -1"
+          >
             <v-select
               v-model="organisation.supplierUuid"
               :items="suppliers"
@@ -31,8 +44,8 @@
               outlined
               hide-details
             ></v-select>
-          </v-flex>
-          <v-flex xs12 md6>
+          </v-col>
+          <v-col cols="12" md="6">
             <v-text-field
               v-model="organisation.customerNumber"
               label="Customer Number"
@@ -41,16 +54,18 @@
               required
               background-color="#ffffff"
             ></v-text-field>
-          </v-flex>
-          <v-flex xs12 md6>
-            <v-switch
-              v-model="organisation.validated"
-              label="Validated"
-              color="success"
-              class="mt-0 pt-0"
-            ></v-switch>
-          </v-flex>
-          <v-flex xs12 md12>
+          </v-col>
+          <v-col cols="12" md="6" align-self="center">
+            <v-text-field
+              v-model="organisation.vatNumber"
+              label="VAT Number"
+              outlined
+              hide-details
+              required
+              background-color="#ffffff"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12">
             <v-text-field
               v-model="organisation.name"
               label="Name"
@@ -59,8 +74,8 @@
               :hide-details="valid"
               required
             ></v-text-field>
-          </v-flex>
-          <v-flex xs12 md6>
+          </v-col>
+          <v-col cols="12" md="6">
             <v-text-field
               v-model="organisation.emailAddress"
               label="Email Address"
@@ -68,44 +83,44 @@
               outlined
               :hide-details="valid"
             ></v-text-field>
-          </v-flex>
-          <v-flex xs12 md6>
+          </v-col>
+          <v-col cols="12" md="6">
             <v-text-field
               v-model="organisation.phoneNumber"
               label="Phone Number"
               outlined
               hide-details
             ></v-text-field>
-          </v-flex>
-          <v-flex xs12 md9>
+          </v-col>
+          <v-col cols="12" md="8">
             <v-text-field v-model="organisation.address1" label="Address" outlined hide-details></v-text-field>
-          </v-flex>
-          <v-flex xs12 md3>
+          </v-col>
+          <v-col cols="12" md="4">
             <v-text-field
               v-model="organisation.address2"
               label="Address Extension"
               outlined
               hide-details
             ></v-text-field>
-          </v-flex>
-          <v-flex xs12 md3>
+          </v-col>
+          <v-col cols="12" md="3">
             <v-text-field
               v-model="organisation.postalCode"
               label="Postal Code"
               outlined
               hide-details
             ></v-text-field>
-          </v-flex>
-          <v-flex xs12 md9>
+          </v-col>
+          <v-col cols="12" md="9">
             <v-text-field v-model="organisation.city" label="City" outlined hide-details></v-text-field>
-          </v-flex>
-          <v-flex xs12 md6>
+          </v-col>
+          <v-col cols="12" md="6">
             <v-text-field v-model="organisation.countryCode" label="Country" outlined hide-details></v-text-field>
-          </v-flex>
-          <v-flex xs12 md6>
+          </v-col>
+          <v-col cols="12" md="6">
             <v-text-field v-model="organisation.state" label="State" outlined hide-details></v-text-field>
-          </v-flex>
-          <v-flex xs12>
+          </v-col>
+          <v-col cols="12">
             <v-btn
               :disabled="dirty===false || valid === false"
               block
@@ -114,8 +129,8 @@
               color="primary"
               @click="$emit('update')"
             >Save Changes</v-btn>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
       </v-container>
     </v-form>
   </v-card>

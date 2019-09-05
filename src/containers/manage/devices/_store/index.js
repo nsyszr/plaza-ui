@@ -1,14 +1,12 @@
+import DeviceApi from "@/services/DeviceApi"
+import {
+    immutableDevice
+} from "@/models/Device"
+
 // initial state
 const state = {
     createDeviceDialog: false,
-    devices: [{
-        id: '1',
-        name: 'mrx-1234',
-        location: 'Regensburg',
-        status: 'ONLINE',
-        serialNumber: '10203040',
-        firmwareVersion: '3.7'
-    }],
+    devices: [],
     dataTableHeaders: [{
             text: 'Name',
             value: 'name'
@@ -22,12 +20,20 @@ const state = {
             value: 'status'
         },
         {
+            text: 'Last Message At',
+            value: 'session.lastMessageAt'
+        },
+        {
             text: 'Serial Number',
             value: 'serialNumber'
         },
         {
             text: 'Firmware',
-            value: 'firmwareVersion'
+            value: 'details.firmware.version'
+        },
+        {
+            text: 'Model',
+            value: 'details.hardware.model'
         }
     ],
     dataTableSortBy: ['name'],
@@ -61,17 +67,36 @@ const actions = {
     }) {
         commit('CREATE_DEVICE_DIALOG_TOGGLED')
     },
-    findAllDevices() {
-        return new Promise((resolve) => {
-            resolve()
+    findAllDevices({
+        commit
+    }) {
+        return new Promise((resolve, reject) => {
+            DeviceApi.findAll()
+                .then(r => r.data)
+                .then(data => {
+                    const items = data.members.map(el => immutableDevice(el))
+                    commit("DEVICES_UPDATED", items)
+                    resolve(items)
+                })
+                .catch(err => {
+                    reject(err)
+                })
         })
     },
     createDevice({
         commit
     }, device) {
-        return new Promise((resolve) => {
-            commit('DEVICE_ADDED', device)
-            resolve(device)
+        return new Promise((resolve, reject) => {
+            DeviceApi.create(device)
+                .then(r => r.data)
+                .then(data => {
+                    const item = immutableDevice(data)
+                    commit("DEVICE_ADDED", item)
+                    resolve(item)
+                })
+                .catch(err => {
+                    reject(err)
+                })
         })
     },
     setDataTableSortBy({
